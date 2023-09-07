@@ -1,5 +1,5 @@
 package hangman.model;
 
-public class OriginalScore {
+public class OriginalScore implements GameScore{
     
 }
