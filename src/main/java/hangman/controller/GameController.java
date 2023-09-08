@@ -25,6 +25,7 @@ import javax.swing.event.AncestorListener;
 import hangman.GUI;
 import hangman.SwingProject;
 import hangman.model.GameModel;
+import hangman.model.HangmanModelException;
 import hangman.model.Language;
 import hangman.view.GamePanel;
 
@@ -60,7 +61,12 @@ public class GameController{
         for(JButton jb : panel.getKeyboardButtonArray()){
             jb.addActionListener((ActionEvent e) -> {
                 jb.setEnabled(false);
-                ArrayList<Integer> positions = model.makeGuess(jb.getText());
+                ArrayList<Integer> positions = null;
+                try {
+                    positions = model.makeGuess(jb.getText());
+                } catch (HangmanModelException ex) {
+                    throw new RuntimeException(ex);
+                }
                 for(int pos : positions){
                     panel.getBlanksArrayList().get(pos).setLetter(jb.getText());
                     panel.getBlanksArrayList().get(pos).repaint();
@@ -141,7 +147,7 @@ public class GameController{
     
     //method: resetGame
     //purpose: reset associated view and controller for a new game
-    public void resetGame(){
+    public void resetGame() throws HangmanModelException {
         model.reset();
         panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
         panel.addBlanks(model.getWordLength());
