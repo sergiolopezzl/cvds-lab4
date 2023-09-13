@@ -1,3 +1,5 @@
+### SERGIO DANIEL LOPEZ VARGAS
+ANDRES FELIPE ARIAS AJIACO
 ### Escuela Colombiana de Ingeniería
 
 ### Procesos de Desarrollo de Software
