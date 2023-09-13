@@ -49,7 +49,7 @@ import hangman.model.PowerScore;
 
         Inferior para el resultado : resultadoFinal = 0
 
- * OriginalScore: formula de calculo: puntaje = (correctas * 10) - (incorrectas * 5).
+ * OriginalScore: formula de calculo: puntaje = 100 - (10*incorrectas).
     Clases de equivalencia:
         Puntaje minimo (Caso valido):
             Numero de letras correctas >= 0.
@@ -91,7 +91,7 @@ import hangman.model.PowerScore;
 
 
 
- * BonusScore: formula de calculo: puntaje = (correctas * 5) - (incorrectas * 10).
+ * BonusScore: formula de calculo: puntaje = (correctas * 10) - (incorrectas * 5).
     Clases de equivalencia:
         Puntaje minimo (Caso valido):
             Numero de letras correctas >= 0.

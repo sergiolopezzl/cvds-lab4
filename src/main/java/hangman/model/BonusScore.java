@@ -1,6 +1,15 @@
 package hangman.model;
 
 public class BonusScore implements GameScore{
+     /**
+	 * Calcula el puntaje del juego .
+	 * @param correctCount letras correctas.
+	 * @param incorrectCount letras incorrectas.
+	 * @return resultado del puntaje.
+	 * @pre calculo de letras correctas e incorrectas.  
+	 * @pos calculo del puntaje, formula de calculo: puntaje = (correctas * 10) - (incorrectas * 5).
+     * @throws HangmanModelException
+     **/
     public int calculateScore(int correctCount, int incorrectCount) throws HangmanModelException {
         int resultadoFinal;
         if (correctCount < 0) throw new HangmanModelException(HangmanModelException.LETRAS_CORRECTAS_MENORES);
