@@ -31,18 +31,18 @@ public class GameModel {
     private Scanner scan;
     private String randomWord;
     private char[] randomWordCharArray;
-    private GameScore gameScoreClase = new OriginalScore();
+    private GameScore gameScoreClase;
     
     
    
-    public GameModel(HangmanDictionary dictionary) throws HangmanModelException {
+    public GameModel(GameScore gameScoreClase, HangmanDictionary dictionary) throws HangmanModelException {
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary=dictionary;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = gameScoreClase.calculateScore(correctCount, incorrectCount);
+        this.gameScoreClase = gameScoreClase;
         
     }
     
@@ -76,9 +76,11 @@ public class GameModel {
         if(positions.size() == 0){
             incorrectCount++;
             gameScore = gameScoreClase.calculateScore(correctCount, incorrectCount);
+            
         } else {
             correctCount += positions.size();
         }
+        
         return positions;
         
     }

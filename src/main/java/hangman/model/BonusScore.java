@@ -17,7 +17,7 @@ public class BonusScore implements GameScore{
         int resultado = correctCount * 10 - incorrectCount * 5;
         if(resultado > 0){
             resultadoFinal = resultado;
-        }else{
+    }else{
             resultadoFinal = 0;
         }
         return resultadoFinal;
