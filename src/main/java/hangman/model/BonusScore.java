@@ -6,11 +6,11 @@ public class BonusScore implements GameScore{
         if (correctCount < 0) throw new HangmanModelException(HangmanModelException.LETRAS_CORRECTAS_MENORES);
         if (incorrectCount < 0) throw new HangmanModelException(HangmanModelException.LETRAS_INCORRECTAS_MENORES);
         int resultado = correctCount * 10 - incorrectCount * 5;
-        if(resultado >= 0){
+        if(resultado > 0){
             resultadoFinal = resultado;
         }else{
             resultadoFinal = 0;
         }
-    return resultadoFinal;
+        return resultadoFinal;
 	}
 }
